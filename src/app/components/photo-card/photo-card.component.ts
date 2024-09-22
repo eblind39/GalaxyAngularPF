@@ -1,36 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { PexelsService } from '../../services/pexels.service';
-import { IPhoto } from '../../models/photo.interface';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-photo-card',
   standalone: true,
-  imports: [MatCardModule,MatButtonModule],
+  imports: [],
   templateUrl: './photo-card.component.html',
   styleUrl: './photo-card.component.css'
 })
-export class PhotoCardComponent implements OnInit {
+export class PhotoCardComponent {
 
-  photos: IPhoto[] = [];
-  errorEndPoint: boolean = false;
+  @Input() photoDescription!: string;
+  @Input() photoImageURL!: string;
+  @Input() photoURL!: string;
+  @Input() photographerName!: string;
+  @Input() photographerUserName!: string;
+  @Input() photographerURL!: string;
 
-  constructor(private pexelsService: PexelsService) { }
-
-  ngOnInit(): void {
-    console.log(`this is a super bowl`);
-    this.pexelsService.getPageData(1, 2).subscribe(pageData => {
-      console.log(pageData);
-      this.photos = pageData.photos;
-      this.errorEndPoint = false;
-    }, error => {
-      console.log(`Error: ${error}`);
-      this.errorEndPoint = true;
-    })
-  }
-
-  getRealPhotoName(photoURL: string): string {
-    return this.pexelsService.getRealPhotoName(photoURL);
-  }
+  constructor() { }
+  
 }

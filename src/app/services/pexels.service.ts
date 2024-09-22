@@ -33,4 +33,12 @@ export class PexelsService {
 
     return `${photoURL}`;
   }
+
+  getPhotographerUserName(photographerURL: string): string {
+    const matchRegEx = /-(\d+)/i;
+    photographerURL = photographerURL.replace('https://www.pexels.com/', '');
+    photographerURL = photographerURL.replace(matchRegEx, '');
+
+    return `${photographerURL}`;
+  }
 }
