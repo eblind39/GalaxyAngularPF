@@ -1,16 +1,36 @@
-<div class="fixed-grid has-4-cols">
-    <div class="grid">
-        @for(photo of photos; track photo.id) {
-            <div class="cell">
-                <app-photo-card 
-                    [photoDescription]="getRealPhotoName(photo.url)"
-                    [photoImageURL]="photo.src.medium"
-                    [photoURL]="photo.url"
-                    [photographerName]="photo.photographer"
-                    [photographerUserName]="getPhotographerUserName(photo.photographer_url)"
-                    [photographerURL]="photo.photographer_url">
-                </app-photo-card>
-            </div>
-        }
+<div class="box">
+    <div class="fixed-grid has-4-cols">
+        <div class="grid">
+            @for(photo of photos; track photo.id) {
+                <div class="cell">
+                    <app-photo-card 
+                        [photoDescription]="getRealPhotoName(photo.url)"
+                        [photoImageURL]="photo.src.medium"
+                        [photoURL]="photo.url"
+                        [photographerName]="photo.photographer"
+                        [photographerUserName]="getPhotographerUserName(photo.photographer_url)"
+                        [photographerURL]="photo.photographer_url">
+                    </app-photo-card>
+                </div>
+            }
+        </div>
     </div>
+</div>
+
+<div class="demo-options">
+  <mat-paginator 
+        #paginator
+        class="demo-paginator"
+        (page)="handlePageEvent($event)"
+        [length]="length"
+        [pageSize]="pageSize"
+        [showFirstLastButtons]="true"
+        [pageSizeOptions]="pageSizeOptions"
+        [hidePageSize]="false"
+        [pageIndex]="pageIndex"
+        aria-label="Select page">
+  </mat-paginator>
+  <div class="media-content">
+    <p class="subtitle is-6 has-text-centered">Total de páginas: {{ paginator.getNumberOfPages() }}</p>
+  </div>
 </div>
