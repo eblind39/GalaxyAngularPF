@@ -15,22 +15,22 @@
             }
         </div>
     </div>
-</div>
 
-<div class="demo-options">
-  <mat-paginator 
-        #paginator
-        class="demo-paginator"
-        (page)="handlePageEvent($event)"
-        [length]="length"
-        [pageSize]="pageSize"
-        [showFirstLastButtons]="true"
-        [pageSizeOptions]="pageSizeOptions"
-        [hidePageSize]="false"
-        [pageIndex]="pageIndex"
-        aria-label="Select page">
-  </mat-paginator>
-  <div class="media-content">
-    <p class="subtitle is-6 has-text-centered">Total de páginas: {{ paginator.getNumberOfPages() }}</p>
-  </div>
+    <div class="demo-options">
+        <mat-paginator 
+                #paginator
+                class="demo-paginator"
+                (page)="handlePageEvent($event)"
+                [length]="length"
+                [pageSize]="pageSize"
+                [showFirstLastButtons]="true"
+                [pageSizeOptions]="pageSizeOptions"
+                [hidePageSize]="false"
+                [pageIndex]="pageIndex"
+                aria-label="Select page">
+        </mat-paginator>
+        <div class="media-content">
+            <p class="subtitle is-6 has-text-centered">Total de páginas: {{ paginator.getNumberOfPages() }}</p>
+        </div>
+    </div>
 </div>
